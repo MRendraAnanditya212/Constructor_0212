@@ -154,13 +154,12 @@ int main() {
     Peminjam* siswa1 = new Peminjam();
     siswa1->setNama("Rendra").setId(220);
 
-    
+    Petugas* petugas1 = new Petugas();
+    petugas1->setNama("Nico").setId(10).setLevelAkses("Biasa");
 
     Admin admin;
 
-    cout << "===Sebelum Peminjaman===" << endl;
-    buku1->tampilkanInfo();
-    siswa1->tampilkanInfo();
+    
 
     petugas1->prosesPeminjaman(*buku1, *siswa1);
 
