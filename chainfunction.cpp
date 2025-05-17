@@ -105,25 +105,24 @@ public:
         }
     }
 
-    
+    void prosesPengembalian(Buku& b, Peminjam& p)
+    {
+        if (b.statusDipinjam)
+        {
+            b.statusDipinjam = false;
+            p.totalDipinjam--;
+            cout << "Petugas: Buku berhasil dikembalikan." << endl;
+        }
+        else
+        {
+            cout << "Petugas: Buku sedang tidak dipinjam." << endl;
+        } 
+    }
 
     friend class Admin;
 };
 
-class Admin{
-public:
-    void ubahLevelAkses(Petugas& p, const string& aksesBaru)
-    {
-        p.levelAkses = aksesBaru;
-        cout << "[Admin]: level akses diubah menjadi: " << aksesBaru << endl;
-    }
 
-    void lihatStatistik(const Buku& b, const Peminjam& p) const
-    {
-        lihatStatusBuku(b);
-        lihatStatusPeminjam(p);
-    }
-};
 
 //Friend Function
 void lihatStatusBuku(const Buku& b){
