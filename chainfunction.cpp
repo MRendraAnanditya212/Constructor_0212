@@ -159,13 +159,11 @@ int main() {
 
     Admin admin;
 
-    
-
-    petugas1->prosesPeminjaman(*buku1, *siswa1);
-
-    cout << "\n===Setelah Peminjaman===" << endl;
+    cout << "===Sebelum Peminjaman===" << endl;
     buku1->tampilkanInfo();
     siswa1->tampilkanInfo();
+
+    
 
     admin.lihatStatistik(*buku1, *siswa1);
 
