@@ -163,13 +163,11 @@ int main() {
     buku1->tampilkanInfo();
     siswa1->tampilkanInfo();
 
+    petugas1->prosesPeminjaman(*buku1, *siswa1);
+
+    cout << "\n===Setelah Peminjaman===" << endl;
+    buku1->tampilkanInfo();
+    siswa1->tampilkanInfo();
+
     
-
-    admin.lihatStatistik(*buku1, *siswa1);
-
-    petugas1->prosesPengembalian(*buku1, *siswa1);
-
-    admin.ubahLevelAkses(*petugas1, "Koordinator");
-    
-    return 0;
 }
