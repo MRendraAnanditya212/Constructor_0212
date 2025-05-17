@@ -71,27 +71,21 @@ private:
     string levelAkses;
 
 public:
+    Petugas(string n = "", int i = 0, string level = "") : nama(n), id(i), levelAkses(level) {}
     
-
-    Petugas& setLevelAkses(const string& level)
+    Petugas& setNama(const string& n)
     {
-        levelAkses = level;
+        nama = n;
         return *this;
     }
 
-    void prosesPeminjaman(Buku& b, Peminjam& p)
+    Petugas& setId(int i)
     {
-        if (!b.statusDipinjam)
-        {
-            b.statusDipinjam = true;
-            p.totalDipinjam++;
-            cout << "Petugas: Buku berhasil di pinjam." << endl;
-        }
-        else
-        {
-            cout << "Petugas: Buku sedang dipinjam." << endl;
-        }
+        id = i;
+        return *this;
     }
+
+    
 
     void prosesPengembalian(Buku& b, Peminjam& p)
     {
