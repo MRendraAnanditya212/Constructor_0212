@@ -85,21 +85,27 @@ public:
         return *this;
     }
 
-    
-
-    void prosesPengembalian(Buku& b, Peminjam& p)
+    Petugas& setLevelAkses(const string& level)
     {
-        if (b.statusDipinjam)
+        levelAkses = level;
+        return *this;
+    }
+
+    void prosesPeminjaman(Buku& b, Peminjam& p)
+    {
+        if (!b.statusDipinjam)
         {
-            b.statusDipinjam = false;
-            p.totalDipinjam--;
-            cout << "Petugas: Buku berhasil dikembalikan." << endl;
+            b.statusDipinjam = true;
+            p.totalDipinjam++;
+            cout << "Petugas: Buku berhasil di pinjam." << endl;
         }
         else
         {
-            cout << "Petugas: Buku sedang tidak dipinjam." << endl;
-        } 
+            cout << "Petugas: Buku sedang dipinjam." << endl;
+        }
     }
+
+    
 
     friend class Admin;
 };
