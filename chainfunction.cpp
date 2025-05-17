@@ -49,7 +49,11 @@ public:
         return *this;
     }
 
-    
+    Peminjam& setId(int i)
+    {
+        id = i;
+        return *this;
+    }
 
     void tampilkanInfo() const
     {
@@ -60,63 +64,7 @@ public:
     friend void lihatStatusPeminjam(const Peminjam& p);
 };
 
-class Petugas {
-private:
-    string nama;
-    int id;
-    string levelAkses;
 
-public:
-    Petugas(string n = "", int i = 0, string level = "") : nama(n), id(i), levelAkses(level) {}
-    
-    Petugas& setNama(const string& n)
-    {
-        nama = n;
-        return *this;
-    }
-
-    Petugas& setId(int i)
-    {
-        id = i;
-        return *this;
-    }
-
-    Petugas& setLevelAkses(const string& level)
-    {
-        levelAkses = level;
-        return *this;
-    }
-
-    void prosesPeminjaman(Buku& b, Peminjam& p)
-    {
-        if (!b.statusDipinjam)
-        {
-            b.statusDipinjam = true;
-            p.totalDipinjam++;
-            cout << "Petugas: Buku berhasil di pinjam." << endl;
-        }
-        else
-        {
-            cout << "Petugas: Buku sedang dipinjam." << endl;
-        }
-    }
-
-    void prosesPengembalian(Buku& b, Peminjam& p)
-    {
-        if (b.statusDipinjam)
-        {
-            b.statusDipinjam = false;
-            p.totalDipinjam--;
-            cout << "Petugas: Buku berhasil dikembalikan." << endl;
-        }
-        else
-        {
-            cout << "Petugas: Buku sedang tidak dipinjam." << endl;
-        } 
-    }
-
-    friend class Admin;
-};
 
 class Admin{
 public:
