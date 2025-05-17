@@ -8,19 +8,17 @@ private:
     string penulis;
     bool statusDipinjam;
 
+public:
+    Buku(string j = "", string p = "") : judul(j), penulis(p), statusDipinjam(false) {}
 
-
-    Buku& setPenulis(const string& p)
+    // method setter chain function
+    Buku& setJudul(const string& j) 
     {
-        penulis = p;
+        judul = j;
         return *this;
     }
 
-    void tampilkanInfo() const
-    {
-        cout << "Judul: " << judul << ", Penulis: " << penulis << ", Status: ";
-        cout << (statusDipinjam ? "Dipinjam" : "Tersedia") << endl;
-    }
+    
 
     friend class Petugas;
     friend void lihatStatusBuku(const Buku& b);
