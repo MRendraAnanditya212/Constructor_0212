@@ -130,11 +130,7 @@ public:
         cout << "[Admin]: level akses diubah menjadi: " << aksesBaru << endl;
     }
 
-    void lihatStatistik(const Buku& b, const Peminjam& p) const
-    {
-        lihatStatusBuku(b);
-        lihatStatusPeminjam(p);
-    }
+    
 };
 
 //Friend Function
@@ -169,5 +165,11 @@ int main() {
     buku1->tampilkanInfo();
     siswa1->tampilkanInfo();
 
+    admin.lihatStatistik(*buku1, *siswa1);
+
+    petugas1->prosesPengembalian(*buku1, *siswa1);
+
+    admin.ubahLevelAkses(*petugas1, "Koordinator");
     
+    return 0;
 }
