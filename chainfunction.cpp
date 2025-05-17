@@ -11,7 +11,7 @@ private:
 public:
     Buku(string j = "", string p = "") : judul(j), penulis(p), statusDipinjam(false) {}
 
-    // method setter chain function
+    // methodc setter chain function
     Buku& setJudul(const string& j) 
     {
         judul = j;
@@ -34,16 +34,13 @@ public:
     friend void lihatStatusBuku(const Buku& b);
 };
 
+class Peminjam {
+private:
+    string nama;
+    int id;
+    int totalDipinjam;
 
 
-public:
-    Peminjam(string n = "", int i = 0) : nama(n), id(i), totalDipinjam(0){}
-    
-    Peminjam& setNama(const string& n)
-    {
-        nama = n;
-        return *this;
-    }
 
     Peminjam& setId(int i)
     {
