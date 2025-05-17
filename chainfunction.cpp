@@ -64,7 +64,51 @@ public:
     friend void lihatStatusPeminjam(const Peminjam& p);
 };
 
+class Petugas {
+private:
+    string nama;
+    int id;
+    string levelAkses;
 
+public:
+    
+
+    Petugas& setLevelAkses(const string& level)
+    {
+        levelAkses = level;
+        return *this;
+    }
+
+    void prosesPeminjaman(Buku& b, Peminjam& p)
+    {
+        if (!b.statusDipinjam)
+        {
+            b.statusDipinjam = true;
+            p.totalDipinjam++;
+            cout << "Petugas: Buku berhasil di pinjam." << endl;
+        }
+        else
+        {
+            cout << "Petugas: Buku sedang dipinjam." << endl;
+        }
+    }
+
+    void prosesPengembalian(Buku& b, Peminjam& p)
+    {
+        if (b.statusDipinjam)
+        {
+            b.statusDipinjam = false;
+            p.totalDipinjam--;
+            cout << "Petugas: Buku berhasil dikembalikan." << endl;
+        }
+        else
+        {
+            cout << "Petugas: Buku sedang tidak dipinjam." << endl;
+        } 
+    }
+
+    friend class Admin;
+};
 
 class Admin{
 public:
