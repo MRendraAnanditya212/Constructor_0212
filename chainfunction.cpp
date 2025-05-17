@@ -122,12 +122,23 @@ public:
     friend class Admin;
 };
 
+class Admin{
+public:
+    void ubahLevelAkses(Petugas& p, const string& aksesBaru)
+    {
+        p.levelAkses = aksesBaru;
+        cout << "[Admin]: level akses diubah menjadi: " << aksesBaru << endl;
+    }
 
+    void lihatStatistik(const Buku& b, const Peminjam& p) const
+    {
+        lihatStatusBuku(b);
+        lihatStatusPeminjam(p);
+    }
+};
 
 //Friend Function
-void lihatStatusBuku(const Buku& b){
-cout << "[Admin]: Status Buku: " << (b.statusDipinjam ? "Dipinjam" : "Tersedia") << endl;
-}
+
 
 
 void lihatStatusPeminjam(const Peminjam& p){
