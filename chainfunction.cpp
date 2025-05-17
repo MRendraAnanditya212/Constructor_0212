@@ -40,13 +40,16 @@ private:
     int id;
     int totalDipinjam;
 
-
-
-    Peminjam& setId(int i)
+public:
+    Peminjam(string n = "", int i = 0) : nama(n), id(i), totalDipinjam(0){}
+    
+    Peminjam& setNama(const string& n)
     {
-        id = i;
+        nama = n;
         return *this;
     }
+
+    
 
     void tampilkanInfo() const
     {
