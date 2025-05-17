@@ -138,12 +138,12 @@ public:
 };
 
 //Friend Function
-
-
-
-void lihatStatusPeminjam(const Peminjam& p){
-    cout << "[Admin]: Total Buku Dipinjam oleh Peminjam: " << p.totalDipinjam << endl;
+void lihatStatusBuku(const Buku& b){
+cout << "[Admin]: Status Buku: " << (b.statusDipinjam ? "Dipinjam" : "Tersedia") << endl;
 }
+
+
+
 
 int main() {
     Buku* buku1 = new Buku();
