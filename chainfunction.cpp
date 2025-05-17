@@ -18,17 +18,23 @@ public:
         return *this;
     }
 
-    
+    Buku& setPenulis(const string& p)
+    {
+        penulis = p;
+        return *this;
+    }
+
+    void tampilkanInfo() const
+    {
+        cout << "Judul: " << judul << ", Penulis: " << penulis << ", Status: ";
+        cout << (statusDipinjam ? "Dipinjam" : "Tersedia") << endl;
+    }
 
     friend class Petugas;
     friend void lihatStatusBuku(const Buku& b);
 };
 
-class Peminjam {
-private:
-    string nama;
-    int id;
-    int totalDipinjam;
+
 
 public:
     Peminjam(string n = "", int i = 0) : nama(n), id(i), totalDipinjam(0){}
