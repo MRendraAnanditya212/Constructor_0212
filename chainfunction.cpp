@@ -147,4 +147,32 @@ void lihatStatusPeminjam(const Peminjam& p){
     cout << "[Admin]: Total Buku Dipinjam oleh Peminjam: " << p.totalDipinjam << endl;
 }
 
-i
+int main() {
+    
+
+    Peminjam* siswa1 = new Peminjam();
+    siswa1->setNama("Rendra").setId(220);
+
+    Petugas* petugas1 = new Petugas();
+    petugas1->setNama("Nico").setId(10).setLevelAkses("Biasa");
+
+    Admin admin;
+
+    cout << "===Sebelum Peminjaman===" << endl;
+    buku1->tampilkanInfo();
+    siswa1->tampilkanInfo();
+
+    petugas1->prosesPeminjaman(*buku1, *siswa1);
+
+    cout << "\n===Setelah Peminjaman===" << endl;
+    buku1->tampilkanInfo();
+    siswa1->tampilkanInfo();
+
+    admin.lihatStatistik(*buku1, *siswa1);
+
+    petugas1->prosesPengembalian(*buku1, *siswa1);
+
+    admin.ubahLevelAkses(*petugas1, "Koordinator");
+    
+    return 0;
+}
